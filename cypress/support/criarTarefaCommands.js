@@ -25,7 +25,7 @@ Cypress.Commands.add('setarCamposDaTarefa', () => {
 });
 
 Cypress.Commands.add('criarTarefa', () => {
-  cy.xpath(loc.MY_VIEW_PAGE.SIDEBAR.LINK_CRIAR_TAREFA, {timeout: 10000}).should('be.visible').click()
-  cy.setarCamposDaTarefa();
-  cy.xpath(loc.MY_VIEW_PAGE.SIDEBAR.FORM_CRIAR_TAREFA.BTN_CRIAR_TAREFA).click();
+    cy.xpath(loc.MY_VIEW_PAGE.SIDEBAR.LINK_CRIAR_TAREFA, {timeout: 10000}).should('be.visible').click()
+    cy.setarCamposDaTarefa();
+    cy.xpath(loc.MY_VIEW_PAGE.SIDEBAR.FORM_CRIAR_TAREFA.BTN_CRIAR_TAREFA).click();
 });

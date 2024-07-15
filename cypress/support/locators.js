@@ -67,7 +67,8 @@ const locators = {
         BTN_ADICIONAR_ANOTACAO: `//input[contains(@value, "Adicionar Anotação")]`,
         CHECKBOX_VISIBILIDADE: '#bugnote_add_view_status',
         BTN_MONITORAR: `//input[contains(@value, "Monitorar")]`,
-        BTN_PARAR_DE_MONITORAR: `//input[contains(@value, "Parar de Monitorar")]`
+        BTN_PARAR_DE_MONITORAR: `//input[contains(@value, "Parar de Monitorar")]`,
+        LINHAS_TABELA_HISTORICO_TAREFA: '#history tr'
     },
     PRINT_ALL_BUG_PAGE:{
         LINK_PRINT_WORD: `//a[starts-with(@href, "print_all")][1]`

@@ -54,7 +54,7 @@ describe('Testes Funcionais Criar Tarefa', () => {
             expect(validationMessage).to.equal(msg_preencha_o_campo);
         });
         cy.get(loc.MY_VIEW_PAGE.SIDEBAR.FORM_CRIAR_TAREFA.RESUMO).type(resumo);
-        cy.get(loc.MY_VIEW_PAGE.SIDEBAR.FORM_CRIAR_TAREFA.DESCRICAO).type('Teste');
+        cy.get(loc.MY_VIEW_PAGE.SIDEBAR.FORM_CRIAR_TAREFA.DESCRICAO).type(descricao);
         cy.xpath(loc.MY_VIEW_PAGE.SIDEBAR.FORM_CRIAR_TAREFA.BTN_CRIAR_TAREFA).click();
         cy.xpath(loc.BUG_REPORT_PAGE.ALERT_APPLICATION_ERROR).should('be.visible');
     });
