@@ -3,6 +3,7 @@ import loc from "../support/locators";
 
 describe('Testes Funcionais Minha Visao', () =>{
     let tarefaId;
+    let log_usuario;
 
     beforeEach(() => {
         cy.fixture('login.json').then((login) =>{
@@ -12,6 +13,7 @@ describe('Testes Funcionais Minha Visao', () =>{
 
         cy.fixture('minhaVisao.json').then((minhaVisao) => {
             tarefaId = minhaVisao.tarefaId;
+            log_usuario = minhaVisao.log_usuario
         });
     });
 
@@ -27,24 +29,15 @@ describe('Testes Funcionais Minha Visao', () =>{
     });
 
     it('Verificar se são listadas até 10 tarefas na tabela "Não atribuidos"', () => {
-        cy.visit('/my_view_page.php')
-        cy.get(loc.MY_VIEW_PAGE.SIDEBAR.TABELAS_MINHA_VISAO.TABELA_NAO_ATRIBUIDOS).within(() => {
-            cy.get('tbody tr').should('have.length', 10);
-        });
+        cy.VerificarQuantidadeListagem('nao_atribuidos')
     });
     
     it('Verificar se são listadas até 10 tarefas na tabela "Relatados por mim"', () => {
-        cy.visit('/my_view_page.php')
-        cy.get(loc.MY_VIEW_PAGE.SIDEBAR.TABELAS_MINHA_VISAO.TABELA_RELATADOS_POR_MIM).within(() => {
-            cy.get('tbody tr').should('have.length', 10);
-        });
+        cy.VerificarQuantidadeListagem('relatados_por_mim')
     });
 
     it('Verificar se são listadas até 10 tarefas na tabela "Modificados recentemente(30 dias)"', () => {
-        cy.visit('/my_view_page.php')
-        cy.get(loc.MY_VIEW_PAGE.SIDEBAR.TABELAS_MINHA_VISAO.TABELA_MODIFICADOS_RECENTEMENTE).within(() => {
-            cy.get('tbody tr').should('have.length', 10);
-        });
+        cy.VerificarQuantidadeListagem('modificados_recentemente')
     });
 
     it('Verificar redirecionamento do botão "Ver tarefas', () =>{
@@ -53,5 +46,18 @@ describe('Testes Funcionais Minha Visao', () =>{
         cy.xpath(loc.MY_VIEW_PAGE.SIDEBAR.TABELAS_MINHA_VISAO.BTN_VER_TAREFAS_MONITORADOS_POR_MIM).click();
         cy.url().should('include', '/view_all_bug_page.php?filter=')
         cy.pararDeMonitorarTarefa(tarefaId);
+    });
+
+    it('Gravação de log na tabela "Linha do tempo"', () => {
+        cy.visit('/my_view_page.php');
+        cy.get(loc.MY_VIEW_PAGE.SIDEBAR.TABELAS_MINHA_VISAO.LINHAS_TABELA_LINHA_DO_TEMPO).then(initialEntries =>{
+            const initialEntryCount = initialEntries.length;
+            cy.criarTarefa();
+            cy.get(loc.MY_VIEW_PAGE.SIDEBAR.TABELAS_MINHA_VISAO.LINHAS_TABELA_LINHA_DO_TEMPO).should('have.length', initialEntryCount + 1);
+            
+            cy.get(loc.MY_VIEW_PAGE.SIDEBAR.TABELAS_MINHA_VISAO.LINHAS_TABELA_LINHA_DO_TEMPO).eq(initialEntryCount).within(() => {
+                cy.get('.action').should('contain', log_usuario);
+              });
+        })
     });
 });

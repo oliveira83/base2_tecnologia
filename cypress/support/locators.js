@@ -25,7 +25,8 @@ const locators = {
                 INFORMACOES_ADICIONAIS: '#additional_info',
                 APLICAR_MARCADORES: '#tag_select',
                 ENVIAR_ARQUIVOS: `//div/i[starts-with(@class, "upload-icon")]`,
-                BTN_CRIAR_TAREFA: `//input[contains(@value, "Criar Nova Tarefa")]`
+                BTN_CRIAR_TAREFA: `//input[contains(@value, "Criar Nova Tarefa")]`,
+                ALERT_ARQUIVO_PESADO: '.dz-error-message'
             },
             LINK_MINHA_VISAO: `//a/span[contains(text(), "Minha Visão")]`,
             TABELAS_MINHA_VISAO:{
@@ -33,7 +34,8 @@ const locators = {
                 BTN_VER_TAREFAS_MONITORADOS_POR_MIM:`//a[starts-with(@href, "view_all_set.php?type=1&temporary=y&monitor_user_id=237&hide_status=90")][contains(text(),"View Issues")]`,
                 TABELA_NAO_ATRIBUIDOS: '#unassigned',
                 TABELA_RELATADOS_POR_MIM: '#reported',
-                TABELA_MODIFICADOS_RECENTEMENTE: '#recent_mod'
+                TABELA_MODIFICADOS_RECENTEMENTE: '#recent_mod',
+                LINHAS_TABELA_LINHA_DO_TEMPO: '#timeline .profile-activity.clearfix'
             },
         },
     },
