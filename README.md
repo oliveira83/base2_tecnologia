@@ -8,4 +8,5 @@ npm install
 npm run cy:run
 
 
-Para visualizar o relatorios de execução de testes, basta acessar o diretorio "cypress/reports"
+
+**Para visualizar o relatorios de execução de testes, basta acessar o diretorio "cypress/reports"**
