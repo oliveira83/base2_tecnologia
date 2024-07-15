@@ -23,10 +23,6 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.on('uncaught:exception', (err, runnable) => {
-    return false;
-});
-
 import loc from './locators';
 
 Cypress.Commands.add('login', (email, password) => {
@@ -36,14 +32,6 @@ Cypress.Commands.add('login', (email, password) => {
     
     cy.get(loc.LOGIN_PAGE_PASSWORD.PASSWORD).type(password);
     cy.xpath(loc.LOGIN_PAGE_PASSWORD.BTN_ENTRAR).click().then(() => {
-        cy.url().should('include', 'index.php');
     });
-    // cy.xpath(loc.MY_VIEW_PAGE.NAVBAR.LOGO_MANTIS).should('be.visible');
 });
 
-Cypress.Commands.add('filtrarTarefa', () => {
-    cy.visit('view_all_bug_page.php')
-    cy.xpath(loc.VIEW_ALL_BUG_PAGE.FILTROS.BTN_REDEFINIR).click()
-    cy.get(loc.VIEW_ALL_BUG_PAGE.FILTROS.INPUT_PROCURAR).type('0001095')
-    cy.xpath(loc.VIEW_ALL_BUG_PAGE.FILTROS.BTN_APLICAR_FILTRO).click()
-});

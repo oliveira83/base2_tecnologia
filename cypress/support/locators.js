@@ -1,4 +1,5 @@
 const locators = {
+
     LOGIN_PAGE: {
         USERNAME: '#username',
         BTN_ENTRAR: `//input[@value="Login"]`
@@ -11,8 +12,9 @@ const locators = {
         NAVBAR:{
             LOGO_MANTIS: `//div/a/span[contains(text(), 'MantisBT')]`
         },
+
         SIDEBAR: {
-            LINK_CRIAR_TAREFA: `//a[contains(@href, "/bug_report_page.php")]`,
+            LINK_CRIAR_TAREFA: `//ul[contains(@class, "nav nav-list")]/li[3]/a`,
             FORM_CRIAR_TAREFA:{
                 CRIAR_TAREFA_LISTA: '#category_id',
                 FREQUENCIA_LISTA: '#reproducibility',
@@ -25,12 +27,19 @@ const locators = {
                 APLICAR_MARCADORES: '#tag_select',
                 ENVIAR_ARQUIVOS: `//div/i[starts-with(@class, "upload-icon")]`,
                 BTN_CRIAR_TAREFA: `//input[contains(@value, "Criar Nova Tarefa")]`
+            },
+            LINK_MINHA_VISAO: `//a/span[contains(text(), "Minha Visão")]`,
+            TABELAS_MINHA_VISAO:{
+                MONITORADOS_POR_MIM: `//div[contains(@id, "monitored")]//div[contains(@class, "widget-body")]/div/div/table/tbody/tr/td/a[contains(text(), "0001095")]`
             }
         }
     },
     BUG_REPORT_PAGE:{
         ALERT_OPERACAO_REALIZADA_SUCESSO: '.alert',
-        ALERT_APPLICATION_ERROR: `//div[starts-with(@class, "alert alert-danger")]`
+        ALERT_APPLICATION_ERROR: `//div[starts-with(@class, "alert alert-danger")]`,
+        INFO_USER: `//span[contains(@class, "user-info")]`,
+        LINK_SAIR: `//a[contains(@href, "logout_page.php")]`,
+        REMOVER_ARQUIVO: '.dz-remove'
     },
     VIEW_ALL_BUG_PAGE:{
         FILTROS:{
@@ -39,9 +48,25 @@ const locators = {
             BTN_REDEFINIR: `//div[starts-with(@class,"btn")]/a[contains(@href, "view_all_set.php?type=0")]`
         },
         TABELA_BUGLIST:{
-            COLUNA_ID: `//td/a[contains(@href, "/view.php?id=1095")]`
+            COLUNA_ID: `//td[contains(@class, "column-id")]/a`,
+            CKBOX_ID: `//input[contains(@type, "checkbox")][contains(@value, "1095")]`,
+            BTN_IMPRIMIR_TAREFAS: `//div/a[contains(text(), "Imprimir Tarefas")]`,
+            BTN_EXPORTAR_CSV: `//a[starts-with(@href, "csv")]`,
+            BTN_EXPORTAR_EXCEL: `//a[starts-with(@href, "excel_xml")]`
         }
-    }
+    },
+    VIEW_DETALHES_TAREFA_PAGE:{
+        BTN_IR_PARA_ANOTACOES: `//div/a[contains(text(),"Ir para as Anotações")]`,
+        TXT_AREA_ANOTACOES: `//textarea[contains(@name,"bugnote")]`,
+        ENVIAR_ARQUIVOS_TAREFA: `//div[contains(@class, "dropzone center dz-clickable")]/span[contains(text(), "Anexe arquivos arrastando")]`,
+        BTN_ADICIONAR_ANOTACAO: `//input[contains(@value, "Adicionar Anotação")]`,
+        CHECKBOX_VISIBILIDADE: '#bugnote_add_view_status',
+        BTN_MONITORAR: `//input[contains(@value, "Monitorar")]`,
+        BTN_PARAR_DE_MONITORAR: `//input[contains(@value, "Parar de Monitorar")]`
+    },
+    PRINT_ALL_BUG_PAGE:{
+        LINK_PRINT_WORD: `//a[starts-with(@href, "print_all")][1]`
+    },
 }
 
 export default locators;

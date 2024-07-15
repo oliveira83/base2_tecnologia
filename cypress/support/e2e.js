@@ -15,8 +15,17 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import './verTarefaCommands'
+import './criarTarefaCommands'
+import './minhaVisaoCommands'
 require('cypress-xpath');
 import 'cypress-file-upload';
+import 'cypress-downloadfile/lib/downloadFileCommand';
+import 'cypress-mochawesome-reporter/register';
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false;
+});
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
