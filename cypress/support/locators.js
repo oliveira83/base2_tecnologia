@@ -35,7 +35,7 @@ const locators = {
                 TABELA_NAO_ATRIBUIDOS: '#unassigned',
                 TABELA_RELATADOS_POR_MIM: '#reported',
                 TABELA_MODIFICADOS_RECENTEMENTE: '#recent_mod',
-                LINHAS_TABELA_LINHA_DO_TEMPO: '#timeline .profile-activity.clearfix'
+                LINHAS_TABELA_LINHA_DO_TEMPO: '.widget-body .profile-activity.clearfix'
             },
         },
     },

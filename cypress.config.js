@@ -5,6 +5,7 @@ const path = require('path');
 
 module.exports = defineConfig({
     e2e: {
+        chromeWebSecurity: false,
         setupNodeEvents(on, config) {
             require('cypress-mochawesome-reporter/plugin')(on)
             on('task', { 
@@ -35,4 +36,5 @@ module.exports = defineConfig({
             json: true,
             charts: true
     },
+    
 });

@@ -57,7 +57,7 @@ describe('Testes Funcionais Minha Visao', () =>{
             
             cy.get(loc.MY_VIEW_PAGE.SIDEBAR.TABELAS_MINHA_VISAO.LINHAS_TABELA_LINHA_DO_TEMPO).eq(initialEntryCount).within(() => {
                 cy.get('.action').should('contain', log_usuario);
-              });
+            });
         })
     });
 });
