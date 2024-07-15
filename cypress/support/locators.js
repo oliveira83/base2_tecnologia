@@ -12,7 +12,6 @@ const locators = {
         NAVBAR:{
             LOGO_MANTIS: `//div/a/span[contains(text(), 'MantisBT')]`
         },
-
         SIDEBAR: {
             LINK_CRIAR_TAREFA: `//ul[contains(@class, "nav nav-list")]/li[3]/a`,
             FORM_CRIAR_TAREFA:{
@@ -30,9 +29,13 @@ const locators = {
             },
             LINK_MINHA_VISAO: `//a/span[contains(text(), "Minha Visão")]`,
             TABELAS_MINHA_VISAO:{
-                MONITORADOS_POR_MIM: `//div[contains(@id, "monitored")]//div[contains(@class, "widget-body")]/div/div/table/tbody/tr/td/a[contains(text(), "0001095")]`
-            }
-        }
+                TABELA_MONITORADOS_POR_MIM: `//div[contains(@id, "monitored")]//div[contains(@class, "widget-body")]/div/div/table/tbody/tr/td/a[contains(text(), "0001095")]`,
+                BTN_VER_TAREFAS_MONITORADOS_POR_MIM:`//a[starts-with(@href, "view_all_set.php?type=1&temporary=y&monitor_user_id=237&hide_status=90")][contains(text(),"View Issues")]`,
+                TABELA_NAO_ATRIBUIDOS: '#unassigned',
+                TABELA_RELATADOS_POR_MIM: '#reported',
+                TABELA_MODIFICADOS_RECENTEMENTE: '#recent_mod'
+            },
+        },
     },
     BUG_REPORT_PAGE:{
         ALERT_OPERACAO_REALIZADA_SUCESSO: '.alert',
