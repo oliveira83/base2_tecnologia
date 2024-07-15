@@ -6,4 +6,5 @@ cypress/reports/
 cypress/fixtures/data_teste_biggest.jpg
 cypress/fixtures/data_teste_small.jpg
 cypress/support/download/*
+cypress/downloads/
 

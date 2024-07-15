@@ -24,6 +24,5 @@ describe('Testes Funcionais Minha Visao', () =>{
             cy.xpath(loc.MY_VIEW_PAGE.SIDEBAR.TABELAS_MINHA_VISAO.MONITORADOS_POR_MIM).should('be.visible');
         });
         cy.pararDeMonitorarTarefa(tarefaId);
-        
     });
 });
